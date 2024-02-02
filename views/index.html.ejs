@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/assets/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React + EJS prod</title>
+  <% if (environment==='production' ) { %>
+    <link rel="stylesheet" href="<%= manifest['src/main.jsx'].css[0] %>" />
+    <% } %>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <% if (environment==='production' ) { %>
+    <script type="module" src="<%= manifest['src/main.jsx'].file %>"></script>
+    <% } else { %>
+      <script type="module">
+        import RefreshRuntime from "http://localhost:4000/@react-refresh";
+        RefreshRuntime.injectIntoGlobalHook(window);
+        window.$RefreshReg$ = () => { };
+        window.$RefreshSig$ = () => (type) => type;
+        window.__vite_plugin_react_preamble_installed__ = true;
+      </script>
+      <script type="module" src="http://localhost:4000/@vite/client"></script>
+      <script type="module" src="http://localhost:4000/src/main.jsx"></script>
+      <% } %>
+</body>
+
+</html>
