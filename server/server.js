@@ -20,7 +20,7 @@ export const createServer = () => {
 
     server.get('*', express.static(
         path.join(__dirname, '..', isProduction ? "build" : "public"))
-    )
+    ) // if isProduction == false, serve assets from public folder
 
     return server
 }

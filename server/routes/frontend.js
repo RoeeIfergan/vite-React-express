@@ -1,5 +1,5 @@
 import express from 'express'
-import { internals } from '../utils/manifest'
+import { internals } from '../utils/manifest.js'
 
 const Router = express.Router()
 

@@ -1,11 +1,11 @@
 # React + express + vite
 
 ## Development
-Run:
-1. `npm run dev`
-
 Runs an express server & vite dev server.
 All frontend related things except the initial .html is done via the vite dev server.
+Run in 2 termnals:
+1. `npm run vite`
+1. `npm run express`
 
 ## Production
 Run:
