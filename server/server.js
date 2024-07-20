@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 
 import routes from './routes/index.js'
 import logger from './utils/logger.js'
+import parseManifest from './utils/manifest.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,6 +27,7 @@ export const createServer = () => {
 
 export const initializeConnections = async () => {
     //initialize db, rabbitmq, etc..
+    await parseManifest()
 }
 
 export const initServer = async ({ server }) => {
